@@ -13,7 +13,6 @@ import socket as _socket
 
 from typing import Dict, Optional, Set, Tuple
 
-from ._aes import Cipher, algorithms, modes
 
 if __name__ == '__main__' and (__package__ is None or __package__ == ''):
     _repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -29,6 +28,7 @@ from .raw_websocket import RawWebSocket, WsHandshakeError, set_sock_opts
 from .fake_tls import proxy_to_masking_domain, verify_client_hello, build_server_hello, FakeTlsStream, TLS_RECORD_HANDSHAKE
 from .balancer import balancer
 from .pool import ws_pool, cf_worker_pool
+from ._aes import Cipher, algorithms, modes
 
 
 log = logging.getLogger('tg-mtproto-proxy')

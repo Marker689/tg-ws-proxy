@@ -2,7 +2,6 @@ import asyncio
 import logging
 import struct
 
-from ._aes import Cipher, algorithms, modes
 from typing import List, Optional
 from urllib.parse import urlencode
 
@@ -12,6 +11,7 @@ from .balancer import balancer
 from .config import proxy_config
 from .raw_websocket import RawWebSocket
 from .pool import cf_worker_pool
+from ._aes import Cipher, algorithms, modes
 
 
 log = logging.getLogger('tg-mtproto-proxy')
