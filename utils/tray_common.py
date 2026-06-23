@@ -188,17 +188,18 @@ def _apply_ui_language(cfg: dict) -> None:
 
 def load_config() -> dict:
     ensure_dirs()
+    cfg: Optional[dict] = None
     if CONFIG_FILE.exists():
         try:
             with open(CONFIG_FILE, "r", encoding="utf-8") as f:
                 data = json.load(f)
             for k, v in DEFAULT_CONFIG.items():
                 data.setdefault(k, v)
-            _apply_ui_language(data)
-            return data
+            cfg = data
         except Exception as exc:
             log.warning("Failed to load config: %s", repr(exc))
-    cfg = dict(DEFAULT_CONFIG)
+    if cfg is None:
+        cfg = dict(DEFAULT_CONFIG)
     _apply_ui_language(cfg)
     return cfg
 
