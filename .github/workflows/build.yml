@@ -373,7 +373,6 @@ jobs:
           tags: |
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
             type=raw,value=${{ github.ref_name }}
-            type=sha
 
       - name: Build and push
         uses: docker/build-push-action@v6
